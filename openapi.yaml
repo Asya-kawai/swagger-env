@@ -1,0 +1,51 @@
+openapi: 3.0.1
+
+info:
+  title: Swagger Sample
+  description: |
+    swagger open api サンプル。
+  version: 1.0.0
+
+servers:
+- url: https://example.io/v2
+- url: http://example.io/v1
+
+tags:
+- name: user
+  description: |
+    ユーザに関する操作
+
+paths:
+  /users:
+    get:
+      tags:
+      - user
+      summary: Get all users
+      operationId: getUsers
+      responses:
+        '200':
+          description: A user object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+              examples:
+                Taro:
+                  value:
+                    id: 10
+                    name: Taro Yamada
+                Hanako:
+                  value:
+                    id: 20
+                    name: Hanako Suzuki
+
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+         
