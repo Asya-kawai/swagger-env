@@ -1,0 +1,7 @@
+version: "3"
+
+services:
+  swagger_editor:
+    image: swaggerapi/swagger-editor
+    ports:
+      - $EDITOR_EXTERNAL_PORT:8080
